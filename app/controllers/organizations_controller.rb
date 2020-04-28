@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-
+  #before_action :method, only:[:index, :show]
   def index
     @organizations = Organization.all
 

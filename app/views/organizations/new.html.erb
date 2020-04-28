@@ -1,9 +1,1 @@
-<%= form_for @organization do |f| %>
-<%=f.label :name  %>
-<%=f.text_field :name%>
-<%= f.label :legal_id %>
-<%= f.text_field :legal_id %>
-<%= f.label :contact_email %>
-<%= f.text_field :contact_email %>
-<%= f.submit %>
-<% end %>
+<%= render 'form' %>
