@@ -1,0 +1,5 @@
+<h1>Todos los Equipos</h1>
+<% @teams.each do |team|%>
+  <h3>Organizacion:<%= link_to team.organization.name, organization_path(team.organization)  %></h3>
+  <h5>Equipo:<%= link_to team.name, team_path(team)%></h5>
+<% end %>
