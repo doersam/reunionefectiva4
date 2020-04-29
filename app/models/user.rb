@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #esta linea no deja signup
-  #belongs_to :team
+  belongs_to :team
 
 
   # Include default devise modules. Others available are:
