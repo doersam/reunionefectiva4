@@ -11,7 +11,7 @@ class OrganizationPolicy < ApplicationPolicy
     admin?
   end
   def show?
-    user_is_owner_or_admin?
+    user.team.organization == record
   end
 
   private
