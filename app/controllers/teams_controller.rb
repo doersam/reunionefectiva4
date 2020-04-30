@@ -2,7 +2,8 @@ class TeamsController < ApplicationController
 
   def index
 
-    @teams = policy_scope(Team)
+    @teams = Team.all
+    authorize @teams
 
   end
 

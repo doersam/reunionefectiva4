@@ -1,9 +1,16 @@
 class OrganizationPolicy < ApplicationPolicy
+
   class Scope < Scope
     def resolve
-      scope.all
+      if user.admin?
+        scope.all
+      else
+        raise
+        scope.where(user.participation.team.organization)
+      end
     end
   end
+
   def create?
     admin?
   end
@@ -11,7 +18,7 @@ class OrganizationPolicy < ApplicationPolicy
     admin?
   end
   def show?
-    user.team.organization == record
+    true
   end
 
   private
@@ -19,7 +26,8 @@ class OrganizationPolicy < ApplicationPolicy
     user.admin?
   end
 
-  def user_is_owner_or_admin?
+  def user_is_contact_or_admin?
     record.contact_email == user.email || user.admin
   end
 end
+

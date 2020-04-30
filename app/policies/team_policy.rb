@@ -4,6 +4,11 @@ class TeamPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def index?
+    user_in_organization_or_admin?
+  end
+
   def create?
     user_in_organization_or_admin?
   end
@@ -22,7 +27,7 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def admin?
-    user.admin?
+    user.admin
   end
 
   def user_in_organization_or_admin?

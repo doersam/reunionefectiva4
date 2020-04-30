@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'welcome', to: 'pages#welcome', as: :welcome
 
   resources :organizations, only: [:index, :show, :new, :create, :edit, :update]
   resources :teams, only: [:index, :show, :new, :create, :edit, :update]

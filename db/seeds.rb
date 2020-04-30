@@ -82,24 +82,21 @@ md = User.new(
   password: "password",
   admin: true,
   name: "Manfred",
-  last_name: "Dorsam",
-  team: dev
+  last_name: "Dorsam"
   )
 md.save!
 maria = User.new(
   email: "maria@gmail.com",
   password: "password",
   name: "Maria",
-  last_name: "Palotes",
-  team: innovacion
+  last_name: "Palotes"
   )
 maria.save!
 carmen = User.new(
   email: "carmen@gmail.com",
   password: "password",
   name: "Carmen",
-  last_name: "Rodriguez",
-  team: innovacion
+  last_name: "Rodriguez"
   )
 carmen.save!
 
@@ -108,8 +105,7 @@ tita = User.new(
   password: "password",
   admin: false,
   name: "Ilse",
-  last_name: "Dorsam",
-  team: innovacion
+  last_name: "Dorsam"
   )
 tita.save!
 
@@ -117,8 +113,7 @@ hector = User.new(
   email: "Hector@gmail.com",
   password: "password",
   name: "Hector",
-  last_name: "hoff",
-  team: mercadeo
+  last_name: "hoff"
   )
 hector.save!
 puts "users mafam created"
@@ -127,8 +122,7 @@ paco = User.new(
   email: "paco2@gmail.com",
   password: "password",
   name: "Paco",
-  last_name: "apellidocool",
-  team: ventas
+  last_name: "apellidocool"
   )
 paco.save!
 
@@ -136,8 +130,7 @@ marco = User.new(
   email: "marco12@gmail.com",
   password: "password",
   name: "Marco",
-  last_name: "Jefejunior",
-  team: direccion
+  last_name: "Jefejunior"
   )
 marco.save!
 
@@ -145,8 +138,7 @@ lucia = User.new(
   email: "Lucia@gmail.com",
   password: "password",
   name: "Lucia",
-  last_name: "Montes",
-  team: ventas
+  last_name: "Montes"
   )
 lucia.save!
 
@@ -154,13 +146,33 @@ sonia = User.new(
   email: "Sonia@gmail.com",
   password: "password",
   name: "Sonia",
-  last_name: "Esquivel",
-  team:direccion
+  last_name: "Esquivel"
   )
 sonia.save!
 
 puts "users pulpe created"
 
+
+participation1 = Participation.new( team: dev, user: md)
+  participation1.save!
+participation2 = Participation.new( team: innovacion, user: maria)
+  participation2.save!
+participation3 = Participation.new( team: innovacion, user: carmen)
+  participation3.save!
+participation4 = Participation.new( team: innovacion, user: tita)
+  participation4.save!
+participation5 = Participation.new( team: mercadeo, user: hector)
+  participation5.save!
+participation6 = Participation.new( team: ventas, user: paco)
+  participation6.save!
+participation7 = Participation.new( team: direccion, user: marco)
+  participation7.save!
+participation8 = Participation.new( team: ventas, user: lucia)
+  participation8.save!
+participation9 = Participation.new( team: direccion, user: sonia)
+  participation9.save!
+
+puts "participations complete"
 # require 'faker'
 # Message.destroy_all
 # Match.destroy_all

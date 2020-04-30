@@ -1,7 +1,9 @@
 class OrganizationsController < ApplicationController
   #before_action :method, only:[:index, :show]
   def index
+
     @organizations = policy_scope(Organization)
+
 
   end
 

@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
   belongs_to :organization
-  has_many :users
+  has_many :participations
 
   validates :name, presence: :true
   validates_associated :organization

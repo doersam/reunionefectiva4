@@ -1,0 +1,9 @@
+=> [[32m#<User id: 30, email: "dorsam.m@gmail.com", created_at: "2020-04-30 14:38:04", updated_at: "2020-04-30 14:38:04", admin: true, name: "Manfred", last_name: "Dorsam", team_id: nil>[0m,
+ [32m#<User id: 31, email: "maria@gmail.com", created_at: "2020-04-30 14:38:04", updated_at: "2020-04-30 14:38:04", admin: nil, name: "Maria", last_name: "Palotes", team_id: nil>[0m,
+ [32m#<User id: 32, email: "carmen@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Carmen", last_name: "Rodriguez", team_id: nil>[0m,
+ [32m#<User id: 33, email: "ilse@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: false, name: "Ilse", last_name: "Dorsam", team_id: nil>[0m,
+ [32m#<User id: 34, email: "hector@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Hector", last_name: "hoff", team_id: nil>[0m,
+ [32m#<User id: 35, email: "paco2@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Paco", last_name: "apellidocool", team_id: nil>[0m,
+ [32m#<User id: 36, email: "marco12@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Marco", last_name: "Jefejunior", team_id: nil>[0m,
+ [32m#<User id: 37, email: "lucia@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Lucia", last_name: "Montes", team_id: nil>[0m,
+ [32m#<User id: 38, email: "sonia@gmail.com", created_at: "2020-04-30 14:38:05", updated_at: "2020-04-30 14:38:05", admin: nil, name: "Sonia", last_name: "Esquivel", team_id: nil>[0m]

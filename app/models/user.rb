@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #esta linea no deja signup
-  belongs_to :team
+  has_many :participations
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
