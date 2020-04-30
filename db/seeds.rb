@@ -123,8 +123,8 @@ hector = User.new(
 hector.save!
 puts "users mafam created"
 
-paco = User.new(
-  email: "paco@gmail.com",
+paco2 = User.new(
+  email: "paco2@gmail.com",
   password: "password",
   name: "Paco",
   last_name: "apellidocool",
