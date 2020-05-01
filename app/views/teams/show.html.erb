@@ -1,6 +1,6 @@
 <h1>Equipo: <%= @team.name %> </h1>
 <h5>Organizacion: <%= link_to @team.organization.name, organization_path(@team.organization)%></h5>
-<h5>Descripcion</h5>
+<h5>Descripción</h5>
 <p><%= @team.description %></p>
 <h5>Miembros del Equipo</h5>
 <ul>
@@ -8,3 +8,4 @@
   <li><%= user.email %> </li>
   <% end %>
 </ul>
+<!-- agregar miembres de equipo -->

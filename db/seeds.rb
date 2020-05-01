@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'destroying'
+Participation.destroy_all
 User.destroy_all
 Team.destroy_all
 Organization.destroy_all
@@ -171,6 +172,8 @@ participation8 = Participation.new( team: ventas, user: lucia)
   participation8.save!
 participation9 = Participation.new( team: direccion, user: sonia)
   participation9.save!
+participation10 = Participation.new( team: direccion, user: hector)
+  participation10.save!
 
 puts "participations complete"
 # require 'faker'

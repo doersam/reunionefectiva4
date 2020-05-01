@@ -1,37 +1,41 @@
 class TeamPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
+      raise
       scope.all
     end
   end
 
-  def index?
-    user_in_organization_or_admin?
-  end
 
   def create?
-    user_in_organization_or_admin?
+    true
   end
 
   def update?
-    organization.contact_email == user.email
+    true
   end
 
   def show?
-    user_in_organization_or_admin?
+    true
+  end
+
+  def destroy?
+    admin?
   end
 
   private
-  def organization
-    record.organization
-  end
+
+  # def organization
+  #   record.organization
+  # end
 
   def admin?
     user.admin
   end
 
-  def user_in_organization_or_admin?
-    organization == user.team.organization || user.admin
-  end
+  # def is_contact_or_admin?
+  #   record.organization.contact_email == user.email || admin?
+  # end
+
 
 end

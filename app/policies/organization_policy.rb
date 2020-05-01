@@ -5,28 +5,32 @@ class OrganizationPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        raise
-        scope.where(user.participation.team.organization)
+        scope.where(teams: user.teams)
       end
     end
   end
 
-  def create?
-    admin?
-  end
-  def update?
-    admin?
-  end
+
+
   def show?
-    true
+    user.teams.where(organization: record).present?
   end
 
-  private
-  def admin?
+  def create?
     user.admin?
   end
 
-  def user_is_contact_or_admin?
+  def update?
+
+    record.contact_email == user.email || user.admin
+  end
+
+  def new_team?
+
+    record.contact_email == user.email || user.admin
+  end
+
+  def create_team?
     record.contact_email == user.email || user.admin
   end
 end

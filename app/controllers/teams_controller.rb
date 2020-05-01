@@ -1,10 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-
-    @teams = Team.all
-    authorize @teams
-
+    @teams = policy_scope(Team)
   end
 
   def show
@@ -12,18 +9,18 @@ class TeamsController < ApplicationController
     authorize @team
   end
 
+
   def new
-    @team = Team.new
-    @organizations = Organization.all
+    @team = Team.new()
     authorize @team
+    @organization = Organization.find(params[:format])
   end
 
   def create
-    @team = Team.new()
-    @team.organization = Organization.find(team_params[:organization])
-    @team.name = team_params[:name]
-    @team.description = team_params[:description]
+    @team = Team.new(team_params)
+    @team.organization = Organization.find(params[:organization])
     @team.save
+    authorize @team
     redirect_to team_path(@team)
   end
 
@@ -42,12 +39,14 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to organization_path(@team.organization)
   end
 
   private
   def team_params
-    params.require(:team).permit(:name, :description, :organization)
+    params.require(:team).permit(:name, :description)
 
   end
 

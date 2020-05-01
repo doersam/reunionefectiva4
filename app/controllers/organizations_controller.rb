@@ -1,14 +1,10 @@
 class OrganizationsController < ApplicationController
-  #before_action :method, only:[:index, :show]
+  before_action :set_organization, only:[:show, :edit, :update]
   def index
-
     @organizations = policy_scope(Organization)
-
-
   end
 
   def show
-    @organization = Organization.find(params[:id])
     authorize @organization
   end
 
@@ -25,20 +21,22 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:id])
+    authorize @organization
   end
 
   def update
-    @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     redirect_to organization_path(@organization)
+    authorize @organization
   end
-
 
   private
   def organization_params
     params.require(:organization).permit(:name, :legal_id, :contact_email)
 
+  end
+  def set_organization
+    @organization =Organization.find(params[:id])
   end
 
 end
