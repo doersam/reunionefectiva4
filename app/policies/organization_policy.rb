@@ -13,7 +13,7 @@ class OrganizationPolicy < ApplicationPolicy
 
 
   def show?
-    user.teams.where(organization: record).present?
+    user.teams.where(organization: record).present? || user.admin?
   end
 
   def create?
@@ -22,16 +22,16 @@ class OrganizationPolicy < ApplicationPolicy
 
   def update?
 
-    record.contact_email == user.email || user.admin
+    record.contact_email == user.email || user.admin?
   end
 
-  def new_team?
+  # def new_team?
 
-    record.contact_email == user.email || user.admin
-  end
+  #   record.contact_email == user.email || user.admin
+  # end
 
-  def create_team?
-    record.contact_email == user.email || user.admin
-  end
+  # def create_team?
+  #   record.contact_email == user.email || user.admin
+  # end
 end
 

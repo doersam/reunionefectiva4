@@ -12,8 +12,9 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new()
-    authorize @team
     @organization = Organization.find(params[:format])
+    @team.organization = @organization
+    authorize @team
   end
 
   def create
@@ -26,17 +27,20 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
-    @organizations = Organization.all
+    authorize @team
   end
 
   def update
     @team = Team.find(params[:id])
-    @team.organization = Organization.find(team_params[:organization])
     @team.name = team_params[:name]
     @team.description = team_params[:description]
     @team.save
+    authorize @team
     redirect_to team_path(@team)
   end
+
+
+
 
   def destroy
     @team = Team.find(params[:id])

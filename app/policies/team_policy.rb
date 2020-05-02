@@ -8,11 +8,12 @@ class TeamPolicy < ApplicationPolicy
 
 
   def create?
-    true
+    user.teams.where(organization: record.organization).present? || admin?
   end
 
   def update?
-    true
+    is_contact_or_admin?
+
   end
 
   def show?
@@ -25,17 +26,13 @@ class TeamPolicy < ApplicationPolicy
 
   private
 
-  # def organization
-  #   record.organization
-  # end
-
   def admin?
     user.admin
   end
 
-  # def is_contact_or_admin?
-  #   record.organization.contact_email == user.email || admin?
-  # end
+  def is_contact_or_admin?
+    record.organization.contact_email == user.email || admin?
+  end
 
 
 end
