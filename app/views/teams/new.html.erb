@@ -1,1 +1,6 @@
-<%= render 'form' %>
+<%= simple_form_for @team do |f| %>
+<%= f.input :name, label:'Nombre:' %>
+<%= f.input :description %>
+<%= hidden_field_tag :organization, @organization.id %>
+<%= f.submit %>
+<% end %>
