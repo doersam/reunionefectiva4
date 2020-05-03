@@ -1,0 +1,5 @@
+<%= simple_form_for @participation, url: create_participation_path do |f| %>
+<%= f.input :user, label:'Email', collection: @team.organization.users%>
+<%= hidden_field_tag :team, @team.id %>
+<%= f.submit %>
+<% end %>

@@ -3,15 +3,16 @@
   <%= link_to "Editar", edit_team_path(@team)%>
 <% end %>
 
-<%= link_to "Atras", :back %>
 
 <p><strong>Organizacion: </strong><%= link_to @team.organization.name, organization_path(@team.organization)%></p>
 <strong>Descripción</strong>
 <p><%= @team.description %></p>
 <strong>Miembros del Equipo</strong>
+<%= link_to "Añadir Miembros", new_participation_path(@team) %>
+
 <ul>
-  <% @team.users.each  do |user| %>
-  <li><%= user.email %> </li>
+  <% @team.participations.each  do |participation| %>
+  <li><%= participation.user.email %>  </li>
   <% end %>
 </ul>
 <!-- agregar miembres de equipo -->
