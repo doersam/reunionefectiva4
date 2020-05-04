@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'welcome', to: 'pages#welcome', as: :welcome
 
   resources :organizations do
-    resources :teams, only: [:show, :new, :edit, :create, :update, :destroy]
+    resources :teams, only: [:show, :new, :edit, :create, :update]
   end
+  resources :teams, only: [:destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get 'new_team', to: 'organizations#new_team', as: :new_team
