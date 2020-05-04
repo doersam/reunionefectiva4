@@ -4,12 +4,18 @@
 <% end %>
 
 <p><strong>Organización: </strong><%= link_to @organization.name, organization_path(@organization)%></p>
+=======
+
+<p><strong>Organizacion: </strong><%= link_to @organization.name, organization_path(@organization)%></p>
+
 <strong>Descripción</strong>
 <p><%= @team.description %></p>
 <strong>Miembros del Equipo</strong>
+<%= link_to "Añadir Miembros", new_participation_path(@team) %>
+
 <ul>
-  <% @team.users.each  do |user| %>
-  <li><%= user.email %> </li>
+  <% @team.participations.each  do |participation| %>
+  <li><%= participation.user.email %>  </li>
   <% end %>
 </ul>
 <!-- agregar miembres de equipo -->

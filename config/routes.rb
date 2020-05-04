@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get 'new_team', to: 'organizations#new_team', as: :new_team
   # post 'create_team', to: 'organizations#create_team', as: :create_team
-
+  get 'new_participation', to: 'teams#new_participation', as: :new_participation
+  post 'create_participation', to: 'teams#create_participation', as: :create_participation
 
 end
