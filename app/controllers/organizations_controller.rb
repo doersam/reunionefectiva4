@@ -15,8 +15,11 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    @organization.save
-    redirect_to organization_path(@organization)
+    if @organization.save
+      redirect_to organization_path(@organization), notice: 'La Organización fue creada'
+    else
+      render :new
+    end
     authorize @organization
   end
 

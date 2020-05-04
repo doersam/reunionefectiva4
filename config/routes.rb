@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'welcome', to: 'pages#welcome', as: :welcome
 
-  resources :organizations, only: [:index, :show, :new, :create, :edit, :update]
-  resources :teams, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  resources :organizations do
+    resources :teams, only: [:show, :new, :edit, :create, :update, :destroy]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get 'new_team', to: 'organizations#new_team', as: :new_team

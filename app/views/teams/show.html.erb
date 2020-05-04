@@ -1,11 +1,9 @@
 <h1>Equipo: <%= @team.name %> </h1>
 <%  if policy(@team).edit?  %>
-  <%= link_to "Editar", edit_team_path(@team)%>
+  <%= link_to "Editar", edit_organization_team_path(@organization, @team)%>
 <% end %>
 
-<%= link_to "Atras", :back %>
-
-<p><strong>Organizacion: </strong><%= link_to @team.organization.name, organization_path(@team.organization)%></p>
+<p><strong>Organización: </strong><%= link_to @organization.name, organization_path(@organization)%></p>
 <strong>Descripción</strong>
 <p><%= @team.description %></p>
 <strong>Miembros del Equipo</strong>

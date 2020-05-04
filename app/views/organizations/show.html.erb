@@ -10,9 +10,10 @@
 <p>Equipos:</p>
 <ul>
   <% @organization.teams.each do |team| %>
-  <li><%= link_to team.name, team_path(team) %></li>
+
+  <li><%= link_to team.name, organization_team_path(@organization, team)%></li>
   <% end %>
 </ul>
 
-  <%= link_to "Añadir Equipo", new_team_path(@organization) %>
+  <%= link_to "Añadir Equipo", new_organization_team_path(@organization) %>
 

@@ -1,8 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :find_organization
 
-  def index
-    @teams = policy_scope(Team)
-  end
 
   def show
     @team = Team.find(params[:id])
@@ -12,17 +10,21 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new()
-    @organization = Organization.find(params[:format])
     @team.organization = @organization
     authorize @team
   end
 
   def create
     @team = Team.new(team_params)
-    @team.organization = Organization.find(params[:organization])
-    @team.save
+    @team.organization = @organization
+    if  @team.save
+      redirect_to organization_team_path(@organization, @team), notice: 'el Equipo fue creado'
+    else
+      render :new
+    end
+
     authorize @team
-    redirect_to team_path(@team)
+
   end
 
   def edit
@@ -36,7 +38,7 @@ class TeamsController < ApplicationController
     @team.description = team_params[:description]
     @team.save
     authorize @team
-    redirect_to team_path(@team)
+    redirect_to organization_team_path(@organization, @team), notice: 'el Equipo fue editado'
   end
 
 
@@ -45,13 +47,16 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
-    redirect_to organization_path(@team.organization)
+    redirect_to organization_path(@organization)
   end
 
   private
   def team_params
     params.require(:team).permit(:name, :description)
 
+  end
+  def find_organization
+    @organization = Organization.find(params[:organization_id])
   end
 
 end
