@@ -3,6 +3,10 @@
   <%= link_to "Editar", edit_organization_team_path(@organization, @team)%>
 <% end %>
 
+  <%= link_to "Nueva reunión en este equipo", new_organization_team_meeting_path(@organization, @team) %>
+
+
+
 <p><strong>Organización: </strong><%= link_to @organization.name, organization_path(@organization)%></p>
 
 
@@ -11,10 +15,14 @@
 <p><%= @team.description %></p>
 <strong>Miembros del Equipo</strong>
 <%= link_to "Añadir Miembros", new_organization_team_participation_path(@organization, @team) %>
-
 <ul>
   <% @team.participations.each  do |participation| %>
   <li><%= participation.user.email %>  </li>
   <% end %>
 </ul>
-<!-- agregar miembres de equipo -->
+<strong>Próximas reuniones</strong>
+<ul>
+  <% @team.meetings.each do |meeting| %>
+  <li><%= link_to meeting.name, organization_team_meeting_path(@organization, @team, meeting) %></li>
+  <% end %>
+</ul>

@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :organizations do
     resources :teams, only: [:show, :new, :edit, :create, :update] do
       resources :participations, only:[:new, :create, :destroy]
+      resources :meetings, only:[:index,:show, :new, :edit, :create, :update]
+
     end
   end
   resources :teams, only: [:destroy]
-
+  resources :meetings, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
