@@ -15,9 +15,7 @@ class MeetingsController < ApplicationController
   def new
     @meeting = Meeting.new
     @meeting.organization = find_organization
-     if find_team
-      @meeting.team = find_team
-    end
+    @meeting.team = find_team
     authorize @meeting
   end
 
@@ -29,7 +27,7 @@ class MeetingsController < ApplicationController
     authorize @meeting
 
     if @meeting.save
-      redirect_to organization_team_meeting_path(@organization, @team, @meeting), notice: 'La reunión fue creada'
+      redirect_to new_organization_team_meeting_invitation_path(@organization, @team, @meeting)
     else
       render :new
     end
@@ -37,7 +35,7 @@ class MeetingsController < ApplicationController
 
   def edit
     @meeting = Meeting.find(params[:id])
-
+    authorize @meeting
   end
   def update
     @meeting = Meeting.find(params[:id])
@@ -53,7 +51,7 @@ class MeetingsController < ApplicationController
 
     @meeting = Meeting.find(params[:id])
     authorize @meeting
-    @meeting.destroy
+    @meeting.destroy!
     redirect_to organization_team_path(@meeting.organization, @meeting.team), notice: 'La reunión fue eliminada'
 
   end
