@@ -22,6 +22,10 @@ class TeamPolicy < ApplicationPolicy
     admin?
   end
 
+  def create_meeting?
+    is_in_team_or_admin?
+  end
+
   private
 
   def admin?
@@ -36,5 +40,8 @@ class TeamPolicy < ApplicationPolicy
     user.teams.where(organization: record.organization).present? || admin?
   end
 
+  def is_in_team_or_admin?
+    record.users.where(id: user.id).present? || user.admin?
+  end
 
 end

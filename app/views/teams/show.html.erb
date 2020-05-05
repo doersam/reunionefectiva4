@@ -3,7 +3,9 @@
   <%= link_to "Editar", edit_organization_team_path(@organization, @team)%>
 <% end %>
 
+<% if policy(@team).create_meeting?%>
   <%= link_to "Nueva reunión en este equipo", new_organization_team_meeting_path(@organization, @team) %>
+<% end %>
 
 
 
