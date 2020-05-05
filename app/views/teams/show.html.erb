@@ -10,7 +10,7 @@
 <strong>Descripción</strong>
 <p><%= @team.description %></p>
 <strong>Miembros del Equipo</strong>
-<%= link_to "Añadir Miembros", new_participation_path(@team) %>
+<%= link_to "Añadir Miembros", new_organization_team_participation_path(@organization, @team) %>
 
 <ul>
   <% @team.participations.each  do |participation| %>
