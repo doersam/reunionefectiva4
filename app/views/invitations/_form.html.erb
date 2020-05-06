@@ -1,0 +1,19 @@
+<h1>Invitados</h1>
+<h3>Equipo: <%= link_to @team.name, organization_team_path(@organization, @team) %></h3>
+<ul>
+  <%@meeting.invitations.each do |invitation|%>
+    <li>
+      <%= invitation.user.name%> <%=invitation.user.last_name%>
+        <% if  @meeting.user == invitation.user %>
+           <strong>Owner</strong>
+        <% else %>
+          <%= link_to "Anular invitation", invitation_path(invitation.id), method: :delete, data: { confirm: "Confirme esta acción por favor" }  %>
+        <% end %>
+    </li>
+  <% end %>
+  <% if  (@organization.users - @meeting.users).empty?%>
+    <p>Ya todas las personas de <%= @organization.name %> han sido invitadas</p>
+  <% else %>
+    <p><%= link_to "Agregar invitados a la reunión", invite_someone_organization_team_meeting_invitations_path(@organization, @team, @meeting) %></p>
+  <% end %>
+</ul>

@@ -25,9 +25,8 @@ class MeetingsController < ApplicationController
     @meeting.team = find_team
     @meeting.user = current_user
     authorize @meeting
-
     if @meeting.save
-      redirect_to new_organization_team_meeting_invitation_path(@organization, @team, @meeting)
+      redirect_to new_organization_team_meeting_invitation_path(@organization, @team, @meeting), notice: 'La reunión fue creada'
     else
       render :new
     end
