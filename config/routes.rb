@@ -7,7 +7,13 @@ Rails.application.routes.draw do
     resources :teams, only: [:show, :new, :edit, :create, :update] do
       resources :participations, only:[:new, :create, :destroy]
       resources :meetings, only:[:index,:show, :new, :edit, :create, :update] do
-        resources :invitations, only:[:new, :create, :edit]
+        resources :invitations, only:[:new, :create, :edit] do
+          collection do
+            get :invite_someone
+            post :send_invites
+
+          end
+        end
       end
     end
   end

@@ -1,0 +1,6 @@
+<%= simple_form_for [@organization, @team, @meeting, @invitation] do |f| %>
+    <%= f.association :user, label: 'Correo de la persona dentro de la organizazión que quiere invitar', collection: (@organization.users - @meeting.users)%>
+<%= f.submit %>
+<% end %>
+
+<!-- (@invitation, method: :post, url:invite_someone_organization_team_meeting_invitations(@organization, @team, @meeting, @invitation)) -->

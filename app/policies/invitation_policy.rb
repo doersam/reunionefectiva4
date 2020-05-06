@@ -17,6 +17,14 @@ class InvitationPolicy < ApplicationPolicy
     creator_or_admin?
   end
 
+  def invite_someone?
+    creator_or_admin?
+  end
+
+  def create?
+    creator_or_admin?
+  end
+
   private
   def creator_or_admin?
     record.meeting.user == user || user.admin?
