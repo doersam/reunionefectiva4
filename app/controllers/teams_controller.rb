@@ -47,30 +47,7 @@ class TeamsController < ApplicationController
     redirect_to organization_path(@organization)
   end
 
-  def new_participation
-    @team = Team.find(params[:format])
-    @participation = Participation.new()
-    authorize @team
-  end
 
-  def create_participation
-    @team = Team.find(params[:team])
-    @participation = Participation.new()
-    @participation.user = User.find(participation_params[:user])
-    @participation.team  = @team
-
-    @participation.save
-    authorize @team
-    redirect_to team_path(@team)
-  end
-
-  def delete_participation
-
-    @team = Team.find(params[:team])
-    @participation = Participation.find(params[:id])
-    @participation.destroy
-    redirect_to team_path(@team)
-  end
 
 
   private
