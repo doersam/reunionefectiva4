@@ -1,7 +1,7 @@
 <h1><%= @meeting.name %></h1>
 <p>Creada por <%=@meeting.user.name%> <%= @user.last_name%> fecha de creación: <%= @meeting.created_at%></p>
 <% if policy(@meeting).destroy? %>
-<p><%= link_to "Eliminar esta reunión", meeting_path, method: :delete, data: { confirm: "Esta seguro" } %></p>
+<p><%= link_to "Eliminar esta reunión", meeting_path, method: :delete, data: { confirm: "Confirme esta acción por favor" } %></p>
 <% end %>
 <strong>Organizacón</strong>
 <p>
@@ -11,3 +11,11 @@
 <p>
 <%= link_to @team.name, organization_team_path(@team)%>
 </p>
+<strong>Invitados</strong>
+<%= link_to "Editar invitados",edit_organization_team_meeting_invitation_path(@organization, @team, @meeting) %>
+<ol>
+  <% @meeting.invitations.each do |invitation|%>
+  <li><%= invitation.user.name %></li>
+  <% end %>
+</ol>
+
