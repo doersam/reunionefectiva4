@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  #esta linea no deja signup
+  after_create :send_welcome_email
+
+
   has_many :participations
   has_many :teams, through: :participations
   # has_many :organization, through: :participations
@@ -9,5 +11,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  private
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
