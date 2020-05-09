@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@lewagon.com'
+  default from: 'soporte@reuefectiva.com'
   layout 'mailer'
 end

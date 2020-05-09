@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def email_parse
-    send_test_email
+    MeetingMailer.send_test_email.deliver
   end
 
 end
