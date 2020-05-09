@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'pages#welcome', as: :welcome
 
   get 'parse', to: 'pages#email_parse', as: :email_parse
+  post 'parse', to: 'pages#email_parse'
 
   resources :organizations do
     resources :teams, only: [:show, :new, :edit, :create, :update] do
