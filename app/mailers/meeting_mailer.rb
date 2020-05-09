@@ -5,9 +5,8 @@ class MeetingMailer < ApplicationMailer
   #
   #   en.meeting_mailer.confirm.subject
   #
-  def confirm
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def send_test_email
+    mail(to: "dorsam.m@gmail.com", subject: 'Thanks for signing up for our amazing app' )
   end
+
 end

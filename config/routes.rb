@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'welcome', to: 'pages#welcome', as: :welcome
 
+  get 'parse', to: 'pages#email_parse', as: :email_parse
+
   resources :organizations do
     resources :teams, only: [:show, :new, :edit, :create, :update] do
       resources :participations, only:[:new, :create, :destroy]
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   resources :teams, only: [:destroy]
   resources :meetings, only: [:destroy]
   resources :invitations, only:[:destroy]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
