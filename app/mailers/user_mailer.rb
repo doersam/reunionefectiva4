@@ -14,4 +14,13 @@ class UserMailer < ApplicationMailer
   end
 
 
+  def respond_with_info(user, email)
+    @user = user
+    @email = email
+
+    mail(to: @user.email, subject: 'Hola ahi va la informacion del correo' )
+
+
+
+  end
 end

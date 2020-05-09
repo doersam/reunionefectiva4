@@ -1,0 +1,17 @@
+<p>
+  Hola <%= @user.name %>
+</p>
+<p>me llego un correo suyo. le estoy devolviendo la informacion como gridller la lee</p>
+<ol>
+  <li>#to = <%= @email.to %></li>
+  <li>#from = <%= @email.from %></li>
+  <li>#cc = <%= @email.cc %></li>
+  <li>#subject = <%= @email.subject %></li>
+  <li>#body = <%= @email.body %></li>
+  <li>#raw_text = <%= @email.raw_text %></li>
+  <li>#raw_html = <%= @email.raw_html %></li>
+  <li>#attachments = <%= @email.attachments %></li>
+  <li>#headers = <%= @email.headers %></li>
+  <li>#raw_headers = <%= @email.raw_headers %></li>
+  <li>#to_h = <%= @email.to_h %></li>
+</ol>

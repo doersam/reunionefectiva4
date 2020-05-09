@@ -9,4 +9,6 @@ class MeetingMailer < ApplicationMailer
     mail(to: "dorsam.m@gmail.com", subject: 'Thanks for signing up for our amazing app' )
   end
 
+
+
 end
