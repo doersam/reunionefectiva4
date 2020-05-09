@@ -8,7 +8,10 @@ class EmailProcessor
     # processing reports, etc
 
     # Here's an example of model creation
-    UserMailer.send_signup_email(User.first).deliver
+
+    @user = User.find_by(email: @email.from[:email])
+
+    UserMailer.respond_with_info(@user, @email).deliver
 
   end
 end
