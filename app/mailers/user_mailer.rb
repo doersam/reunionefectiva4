@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @email = email
 
-    mail(to: @user.email, subject: 'Hola ahi va la informacion del correo' )
+    mail(to: "dorsam.m@gmail.com", subject: 'Hola ahi va la informacion del correo' )
 
 
 
