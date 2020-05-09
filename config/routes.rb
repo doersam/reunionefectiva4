@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'parse', to: 'pages#email_parse', as: :email_parse
   post 'parse', to: 'pages#email_parse'
+  post 'email_processor', to: 'griddler/emails#create'
 
   resources :organizations do
     resources :teams, only: [:show, :new, :edit, :create, :update] do

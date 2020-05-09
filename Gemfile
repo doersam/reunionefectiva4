@@ -12,6 +12,8 @@ gem 'redis'
 
 gem 'letter_opener', group: :development
 gem 'sendgrid-ruby'
+gem 'griddler'
+gem 'griddler-sendgrid'
 
 
 gem 'autoprefixer-rails'
