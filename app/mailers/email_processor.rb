@@ -1,5 +1,5 @@
 class EmailProcessor
-
+  skip_before_action :authenticate_user!, only: [:initialize, :process]
   def initialize(email)
     @email = email
   end
